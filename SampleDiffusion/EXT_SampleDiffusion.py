@@ -8,6 +8,7 @@ from folder_paths import models_dir, get_filename_list
 from comfy.model_management import get_torch_device
 import importlib
 import yaml
+from pathlib import Path
 
 def hijack_import(importname, installname):
     try:
@@ -107,7 +108,7 @@ models_folder = config["model_folder"]
 # init and sample_diffusion lib load
 
 
-comfy_dir = get_comfy_dir()   
+comfy_dir = Path(__file__).resolve().parent.parent
 if not os.path.exists(os.path.join(comfy_dir, 'custom_nodes/SampleDiffusion/libs')):
     os.makedirs(os.path.join(comfy_dir, 'custom_nodes/SampleDiffusion/libs'))
 lib = os.path.join(comfy_dir, 'custom_nodes/SampleDiffusion/libs/sample_generator') 

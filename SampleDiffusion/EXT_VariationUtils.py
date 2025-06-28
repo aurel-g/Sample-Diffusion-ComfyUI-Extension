@@ -4,7 +4,7 @@ import os
 import soundfile as sf
 
 from comfy.model_management import get_torch_device
-from custom_nodes.SampleDiffusion.EXT_SampleDiffusion import AudioInference
+from .EXT_SampleDiffusion import AudioInference
 from diffusion_library.sampler import SamplerType
 from diffusion_library.scheduler import SchedulerType
 
